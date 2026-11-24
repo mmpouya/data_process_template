@@ -11,7 +11,7 @@ dependencies = [
     "pydantic-settings>=2.14.2",
     "pyyaml>=6.0.3",
     "qdrant-client>=1.18.0",
-    "tau-ai>=0.4.5",
+    "tau-ai>=0.4.12",
 ]
 
 [dependency-groups]
