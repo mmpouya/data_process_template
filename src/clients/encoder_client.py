@@ -11,7 +11,7 @@ class EncoderManager:
     _client: AsyncOpenAI | None = None
 
     @classmethod
-    async def init_encoder(cls) -> AsyncOpenAI:
+    async def init_client(cls) -> AsyncOpenAI:
         if not cls._client:
             cls._client = AsyncOpenAI(
                 api_key=get_settings().OPENAI_API_KEY,
@@ -29,7 +29,7 @@ class EncoderManager:
     @classmethod
     async def embed(cls, text: str | list[str]) -> list[list[float]]:
         if not cls._client:
-            cls._client = await cls.init_encoder()
+            cls._client = await cls.init_client()
         if isinstance(text, str):
             text = [text]
         model_name = get_settings().ENCODER_MODEL_NAME
